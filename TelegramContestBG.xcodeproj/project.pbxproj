@@ -8,65 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */; };
-		FAE41DDE25B2CB3F005C5C7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDD25B2CB3F005C5C7D /* SceneDelegate.swift */; };
 		FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */; };
 		FAE41DE325B2CB3F005C5C7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE125B2CB3F005C5C7D /* Main.storyboard */; };
 		FAE41DE525B2CB42005C5C7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE425B2CB42005C5C7D /* Assets.xcassets */; };
 		FAE41DE825B2CB42005C5C7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE625B2CB42005C5C7D /* LaunchScreen.storyboard */; };
-		FAE41DF325B2CB42005C5C7D /* TelegramContestBGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DF225B2CB42005C5C7D /* TelegramContestBGTests.swift */; };
-		FAE41DFE25B2CB42005C5C7D /* TelegramContestBGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DFD25B2CB42005C5C7D /* TelegramContestBGUITests.swift */; };
+		FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */; };
+		FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E2325B2D09D005C5C7D /* Mutex.swift */; };
+		FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */; };
+		FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E3F25B2D865005C5C7D /* Metaball.metal */; };
+		FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4625B2E0B7005C5C7D /* Metaball.swift */; };
+		FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FAE41DEF25B2CB42005C5C7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAE41DD025B2CB3F005C5C7D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAE41DD725B2CB3F005C5C7D;
-			remoteInfo = TelegramContestBG;
-		};
-		FAE41DFA25B2CB42005C5C7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAE41DD025B2CB3F005C5C7D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAE41DD725B2CB3F005C5C7D;
-			remoteInfo = TelegramContestBG;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FAE41DD825B2CB3F005C5C7D /* TelegramContestBG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelegramContestBG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAE41DDD25B2CB3F005C5C7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAE41DE225B2CB3F005C5C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAE41DE425B2CB42005C5C7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAE41DE725B2CB42005C5C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE41DE925B2CB42005C5C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAE41DEE25B2CB42005C5C7D /* TelegramContestBGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelegramContestBGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE41DF225B2CB42005C5C7D /* TelegramContestBGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramContestBGTests.swift; sourceTree = "<group>"; };
-		FAE41DF425B2CB42005C5C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAE41DF925B2CB42005C5C7D /* TelegramContestBGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelegramContestBGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE41DFD25B2CB42005C5C7D /* TelegramContestBGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramContestBGUITests.swift; sourceTree = "<group>"; };
-		FAE41DFF25B2CB42005C5C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGRenderView.swift; sourceTree = "<group>"; };
+		FAE41E2325B2D09D005C5C7D /* Mutex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
+		FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGDisplay.swift; sourceTree = "<group>"; };
+		FAE41E3F25B2D865005C5C7D /* Metaball.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Metaball.metal; sourceTree = "<group>"; };
+		FAE41E4625B2E0B7005C5C7D /* Metaball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metaball.swift; sourceTree = "<group>"; };
+		FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAlignedArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FAE41DD525B2CB3F005C5C7D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE41DEB25B2CB42005C5C7D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE41DF625B2CB42005C5C7D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,8 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				FAE41DDA25B2CB3F005C5C7D /* TelegramContestBG */,
-				FAE41DF125B2CB42005C5C7D /* TelegramContestBGTests */,
-				FAE41DFC25B2CB42005C5C7D /* TelegramContestBGUITests */,
 				FAE41DD925B2CB3F005C5C7D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,8 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				FAE41DD825B2CB3F005C5C7D /* TelegramContestBG.app */,
-				FAE41DEE25B2CB42005C5C7D /* TelegramContestBGTests.xctest */,
-				FAE41DF925B2CB42005C5C7D /* TelegramContestBGUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,8 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */,
-				FAE41DDD25B2CB3F005C5C7D /* SceneDelegate.swift */,
 				FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */,
+				FAE41E1F25B2D087005C5C7D /* helpers */,
+				FAE41E1625B2CF7F005C5C7D /* metal */,
 				FAE41DE125B2CB3F005C5C7D /* Main.storyboard */,
 				FAE41DE425B2CB42005C5C7D /* Assets.xcassets */,
 				FAE41DE625B2CB42005C5C7D /* LaunchScreen.storyboard */,
@@ -110,22 +78,24 @@
 			path = TelegramContestBG;
 			sourceTree = "<group>";
 		};
-		FAE41DF125B2CB42005C5C7D /* TelegramContestBGTests */ = {
+		FAE41E1625B2CF7F005C5C7D /* metal */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41DF225B2CB42005C5C7D /* TelegramContestBGTests.swift */,
-				FAE41DF425B2CB42005C5C7D /* Info.plist */,
+				FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */,
+				FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */,
+				FAE41E4625B2E0B7005C5C7D /* Metaball.swift */,
+				FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */,
+				FAE41E3F25B2D865005C5C7D /* Metaball.metal */,
 			);
-			path = TelegramContestBGTests;
+			path = metal;
 			sourceTree = "<group>";
 		};
-		FAE41DFC25B2CB42005C5C7D /* TelegramContestBGUITests */ = {
+		FAE41E1F25B2D087005C5C7D /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41DFD25B2CB42005C5C7D /* TelegramContestBGUITests.swift */,
-				FAE41DFF25B2CB42005C5C7D /* Info.plist */,
+				FAE41E2325B2D09D005C5C7D /* Mutex.swift */,
 			);
-			path = TelegramContestBGUITests;
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,42 +118,6 @@
 			productReference = FAE41DD825B2CB3F005C5C7D /* TelegramContestBG.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAE41DED25B2CB42005C5C7D /* TelegramContestBGTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAE41E0525B2CB42005C5C7D /* Build configuration list for PBXNativeTarget "TelegramContestBGTests" */;
-			buildPhases = (
-				FAE41DEA25B2CB42005C5C7D /* Sources */,
-				FAE41DEB25B2CB42005C5C7D /* Frameworks */,
-				FAE41DEC25B2CB42005C5C7D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAE41DF025B2CB42005C5C7D /* PBXTargetDependency */,
-			);
-			name = TelegramContestBGTests;
-			productName = TelegramContestBGTests;
-			productReference = FAE41DEE25B2CB42005C5C7D /* TelegramContestBGTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FAE41DF825B2CB42005C5C7D /* TelegramContestBGUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAE41E0825B2CB42005C5C7D /* Build configuration list for PBXNativeTarget "TelegramContestBGUITests" */;
-			buildPhases = (
-				FAE41DF525B2CB42005C5C7D /* Sources */,
-				FAE41DF625B2CB42005C5C7D /* Frameworks */,
-				FAE41DF725B2CB42005C5C7D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAE41DFB25B2CB42005C5C7D /* PBXTargetDependency */,
-			);
-			name = TelegramContestBGUITests;
-			productName = TelegramContestBGUITests;
-			productReference = FAE41DF925B2CB42005C5C7D /* TelegramContestBGUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,14 +129,6 @@
 				TargetAttributes = {
 					FAE41DD725B2CB3F005C5C7D = {
 						CreatedOnToolsVersion = 12.1.1;
-					};
-					FAE41DED25B2CB42005C5C7D = {
-						CreatedOnToolsVersion = 12.1.1;
-						TestTargetID = FAE41DD725B2CB3F005C5C7D;
-					};
-					FAE41DF825B2CB42005C5C7D = {
-						CreatedOnToolsVersion = 12.1.1;
-						TestTargetID = FAE41DD725B2CB3F005C5C7D;
 					};
 				};
 			};
@@ -220,8 +146,6 @@
 			projectRoot = "";
 			targets = (
 				FAE41DD725B2CB3F005C5C7D /* TelegramContestBG */,
-				FAE41DED25B2CB42005C5C7D /* TelegramContestBGTests */,
-				FAE41DF825B2CB42005C5C7D /* TelegramContestBGUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,20 +161,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAE41DEC25B2CB42005C5C7D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE41DF725B2CB42005C5C7D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,42 +168,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
+				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
+				FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */,
 				FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */,
+				FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */,
+				FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */,
+				FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */,
 				FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */,
-				FAE41DDE25B2CB3F005C5C7D /* SceneDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE41DEA25B2CB42005C5C7D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAE41DF325B2CB42005C5C7D /* TelegramContestBGTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE41DF525B2CB42005C5C7D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAE41DFE25B2CB42005C5C7D /* TelegramContestBGUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FAE41DF025B2CB42005C5C7D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAE41DD725B2CB3F005C5C7D /* TelegramContestBG */;
-			targetProxy = FAE41DEF25B2CB42005C5C7D /* PBXContainerItemProxy */;
-		};
-		FAE41DFB25B2CB42005C5C7D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAE41DD725B2CB3F005C5C7D /* TelegramContestBG */;
-			targetProxy = FAE41DFA25B2CB42005C5C7D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FAE41DE125B2CB3F005C5C7D /* Main.storyboard */ = {
@@ -439,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RE82W8HD52;
 				INFOPLIST_FILE = TelegramContestBG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RE82W8HD52;
 				INFOPLIST_FILE = TelegramContestBG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,90 +354,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		FAE41E0625B2CB42005C5C7D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RE82W8HD52;
-				INFOPLIST_FILE = TelegramContestBGTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gralex.TelegramContestBGTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelegramContestBG.app/TelegramContestBG";
-			};
-			name = Debug;
-		};
-		FAE41E0725B2CB42005C5C7D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RE82W8HD52;
-				INFOPLIST_FILE = TelegramContestBGTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gralex.TelegramContestBGTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TelegramContestBG.app/TelegramContestBG";
-			};
-			name = Release;
-		};
-		FAE41E0925B2CB42005C5C7D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RE82W8HD52;
-				INFOPLIST_FILE = TelegramContestBGUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gralex.TelegramContestBGUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TelegramContestBG;
-			};
-			name = Debug;
-		};
-		FAE41E0A25B2CB42005C5C7D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RE82W8HD52;
-				INFOPLIST_FILE = TelegramContestBGUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gralex.TelegramContestBGUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TelegramContestBG;
 			};
 			name = Release;
 		};
@@ -570,24 +374,6 @@
 			buildConfigurations = (
 				FAE41E0325B2CB42005C5C7D /* Debug */,
 				FAE41E0425B2CB42005C5C7D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAE41E0525B2CB42005C5C7D /* Build configuration list for PBXNativeTarget "TelegramContestBGTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAE41E0625B2CB42005C5C7D /* Debug */,
-				FAE41E0725B2CB42005C5C7D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAE41E0825B2CB42005C5C7D /* Build configuration list for PBXNativeTarget "TelegramContestBGUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAE41E0925B2CB42005C5C7D /* Debug */,
-				FAE41E0A25B2CB42005C5C7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

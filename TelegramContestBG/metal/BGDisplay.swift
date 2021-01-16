@@ -11,6 +11,13 @@ import MetalKit
 
 struct GlobalParameters {
     var metaballCount: UInt32
+    var reso: vector_float2
+}
+
+private extension MTLDevice {
+    func makeBuffer<T>(arr: inout [T], options: MTLResourceOptions = []) -> MTLBuffer? {
+        return makeBuffer(bytes: arr, length: MemoryLayout<T>.stride * arr.count, options: options)
+    }
 }
 
 class BGDisplay: NSObject {
@@ -48,31 +55,45 @@ class BGDisplay: NSObject {
         
         pipelineState = (try? device.makeRenderPipelineState(descriptor: pipelineDescriptor))!
         
-        globalParams = GlobalParameters(metaballCount: 0)
+        let size = vector_float2(Float(view.drawableSize.width), Float(view.drawableSize.height))
+        globalParams = GlobalParameters(metaballCount: 0, reso: size)
     }
     
     func prepareDisplay() {
-//        super.prepareDisplay()
-//        let scale = Float(UIScreen.main.scale)
-//        view.globalParams.lineWidth = view.isSelectionChart ? 1.5*scale : 2.0*scale
+    }
+    
+    func update(drawableSize: CGSize) {
+        globalParams.reso = vector_float2(Float(drawableSize.width), Float(drawableSize.height))
     }
     
     func update(metaballs: [Metaball]) {
         if globalParams.metaballCount != UInt32(metaballs.count) {
             globalParams.metaballCount = UInt32(metaballs.count)
-            metaballsArr = PageAlignedContiguousArray<MetaballShader>(repeating: MetaballShader(xy: vector_float2(), color: vector_float3()), count: metaballs.count)
+//            metaballsArr = PageAlignedContiguousArray<MetaballShader>(repeating: MetaballShader(xy: vector_float2(), color: vector_float3()), count: metaballs.count)
+//            metaballsBuffer = device.makeBufferWithPageAlignedArray(metaballsArr)
         }
         
-        for (i,m) in metaballs.enumerated() {
-            metaballsArr[i] = m.shader
-        }
+        var metaShaderVals = metaballs.map{$0.shader}
+        metaballsBuffer = device.makeBuffer(arr: &metaShaderVals)
+        print(metaballsBuffer)
+//        updateBuffer(time, metaballsBuffer)
+        
+//        for (i,m) in metaballs.enumerated() {
+//            metaballsArr[i] = m.shader
+//        }
     }
     
     func display(renderEncoder: MTLRenderCommandEncoder) {
         renderEncoder.setRenderPipelineState(pipelineState)
-//        renderEncoder.setFragmentBuffer(metaballsBuffer, offset: 0, index: 0)
-//        renderEncoder.setFragmentBytes(&view.globalParams, length: MemoryLayout<GlobalParameters>.stride, index: 1)
+        renderEncoder.setFragmentBuffer(metaballsBuffer, offset: 0, index: 0)
+        renderEncoder.setFragmentBytes(&globalParams, length: MemoryLayout<GlobalParameters>.stride, index: 1)
         
         renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+    }
+    
+    private func updateBuffer<T>(_ data:T, _ buffer: MTLBuffer) {
+        let pointer = buffer.contents()
+        let value = pointer.bindMemory(to: T.self, capacity: 1)
+        value[0] = data
     }
 }

@@ -12,10 +12,8 @@ import MetalKit
 class BGRenderView: MTKView {
     
     private var commandQueue: MTLCommandQueue! = nil
-    
-    var display: BGDisplay!
-    var globalParams: GlobalParameters!
-    let mutex = Mutex()
+    private var display: BGDisplay!
+    private let mutex = Mutex()
 
     override init(frame frameRect: CGRect, device: MTLDevice?)
     {
@@ -31,13 +29,10 @@ class BGRenderView: MTKView {
     }
     
     private func configureWithDevice(_ device : MTLDevice) {
-//        let viewport = (Float(drawableSize.width) / 2.0,
-//                        Float(drawableSize.height) / 2.0)
-        
         clearColor = MTLClearColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         framebufferOnly = true
         colorPixelFormat = .bgra8Unorm
+        depthStencilPixelFormat = .invalid
         
         // Run with 4rx MSAA:
         sampleCount = 4
@@ -48,20 +43,21 @@ class BGRenderView: MTKView {
         
         self.device = device
         display = BGDisplay(view: self, device: device)
+        delegate = self
     }
     
     override var device: MTLDevice! {
         didSet {
             super.device = device
             commandQueue = (self.device?.makeCommandQueue())!
-            
         }
     }
     
     override func draw(_ rect: CGRect) {
-//        if chartDataCount == 0 { return }
-//        globalParams.halfViewport = (Float(drawableSize.width) / 2.0,
-//                                     Float(drawableSize.height) / 2.0)
+        drawAll()
+    }
+    
+    func drawAll() {
         display.prepareDisplay()
         
         mutex.lock()
@@ -89,5 +85,20 @@ class BGRenderView: MTKView {
         defer { mutex.unlock() }
         
         display.update(metaballs: metaballs)
+        setNeedsDisplay()
     }
+}
+
+extension BGRenderView: MTKViewDelegate {
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        mutex.lock()
+        defer { mutex.unlock() }
+        
+        (view as? BGRenderView)?.display.update(drawableSize: size)
+    }
+    
+    func draw(in view: MTKView) {
+        (view as? BGRenderView)?.drawAll()
+    }
+    
 }

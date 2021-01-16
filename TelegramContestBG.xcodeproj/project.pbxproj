@@ -18,6 +18,8 @@
 		FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E3F25B2D865005C5C7D /* Metaball.metal */; };
 		FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4625B2E0B7005C5C7D /* Metaball.swift */; };
 		FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */; };
+		FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */; };
+		FAE41E5525B381A7005C5C7D /* AnimTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FAE41E3F25B2D865005C5C7D /* Metaball.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Metaball.metal; sourceTree = "<group>"; };
 		FAE41E4625B2E0B7005C5C7D /* Metaball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metaball.swift; sourceTree = "<group>"; };
 		FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAlignedArray.swift; sourceTree = "<group>"; };
+		FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLinkAnimator.swift; sourceTree = "<group>"; };
+		FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			children = (
 				FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */,
 				FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */,
+				FAE41E5325B3818A005C5C7D /* views */,
 				FAE41E1F25B2D087005C5C7D /* helpers */,
 				FAE41E1625B2CF7F005C5C7D /* metal */,
 				FAE41DE125B2CB3F005C5C7D /* Main.storyboard */,
@@ -93,9 +98,18 @@
 		FAE41E1F25B2D087005C5C7D /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */,
 				FAE41E2325B2D09D005C5C7D /* Mutex.swift */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		FAE41E5325B3818A005C5C7D /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,12 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE41E5525B381A7005C5C7D /* AnimTimeView.swift in Sources */,
 				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
 				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
 				FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */,
 				FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */,
 				FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */,
 				FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */,
+				FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */,
 				FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */,
 				FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */,
 			);

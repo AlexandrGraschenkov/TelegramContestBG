@@ -19,7 +19,11 @@
 		FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4625B2E0B7005C5C7D /* Metaball.swift */; };
 		FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */; };
 		FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */; };
-		FAE41E5525B381A7005C5C7D /* AnimTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */; };
+		FAE41E5525B381A7005C5C7D /* TimingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5425B381A7005C5C7D /* TimingControl.swift */; };
+		FAE41E5825B3825B005C5C7D /* TimingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5725B3825B005C5C7D /* TimingModel.swift */; };
+		FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5B25B3865E005C5C7D /* Extensions.swift */; };
+		FAE41E6025B48E3D005C5C7D /* TimingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */; };
+		FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +41,11 @@
 		FAE41E4625B2E0B7005C5C7D /* Metaball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metaball.swift; sourceTree = "<group>"; };
 		FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAlignedArray.swift; sourceTree = "<group>"; };
 		FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLinkAnimator.swift; sourceTree = "<group>"; };
-		FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimTimeView.swift; sourceTree = "<group>"; };
+		FAE41E5425B381A7005C5C7D /* TimingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingControl.swift; sourceTree = "<group>"; };
+		FAE41E5725B3825B005C5C7D /* TimingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingModel.swift; sourceTree = "<group>"; };
+		FAE41E5B25B3865E005C5C7D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingSlider.swift; sourceTree = "<group>"; };
+		FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClipSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 			children = (
 				FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */,
 				FAE41E2325B2D09D005C5C7D /* Mutex.swift */,
+				FAE41E5B25B3865E005C5C7D /* Extensions.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -107,7 +116,10 @@
 		FAE41E5325B3818A005C5C7D /* views */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41E5425B381A7005C5C7D /* AnimTimeView.swift */,
+				FAE41E5425B381A7005C5C7D /* TimingControl.swift */,
+				FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */,
+				FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */,
+				FAE41E5725B3825B005C5C7D /* TimingModel.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -182,15 +194,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE41E5525B381A7005C5C7D /* AnimTimeView.swift in Sources */,
+				FAE41E5525B381A7005C5C7D /* TimingControl.swift in Sources */,
 				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
 				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
+				FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */,
 				FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */,
 				FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */,
 				FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */,
 				FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */,
+				FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */,
 				FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */,
 				FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */,
+				FAE41E5825B3825B005C5C7D /* TimingModel.swift in Sources */,
+				FAE41E6025B48E3D005C5C7D /* TimingSlider.swift in Sources */,
 				FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

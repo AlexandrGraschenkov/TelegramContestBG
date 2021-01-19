@@ -10,11 +10,15 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var renderView: BGRenderView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var timeControl: TimingControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentSize = CGSize(width: 1, height: timeControl.frame.maxY + 20)
         renderView.update(metaballs: generateMetaballs(percent: 0))
+        timeControl.model = TimingModel(durationF: 60, startOffsetF: 0, endOffsetF: 0, startEase: 0, endEase: 0)
     }
 
 

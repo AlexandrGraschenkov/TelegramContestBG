@@ -12,6 +12,8 @@ import MetalKit
 struct GlobalParameters {
     var metaballCount: UInt32
     var reso: vector_float2
+    var scale: Float
+    var gradient: Float
 }
 
 private extension MTLDevice {
@@ -28,6 +30,7 @@ class BGDisplay: NSObject {
     var pipelineState : MTLRenderPipelineState! = nil
     var globalParams: GlobalParameters
     var metaballsBuffer: MTLBuffer!
+    var distortionTexture: MTLTexture!
     var metaballsArr: PageAlignedContiguousArray<MetaballShader>!
     
     
@@ -35,6 +38,7 @@ class BGDisplay: NSObject {
         self.view = view
         self.device = device
         
+        distortionTexture = device.loadTexture(imgPath: Bundle.main.path(forResource: "distort_displacement", ofType: ".png")!)
         pipelineDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
         pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
         pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
@@ -51,12 +55,12 @@ class BGDisplay: NSObject {
         
         let library = device.makeDefaultLibrary()
         pipelineDescriptor.vertexFunction = library?.makeFunction(name: "metaball_vertex")
-        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "metaball_fragment")
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "metaball_fragment_displacement")
         
         pipelineState = (try? device.makeRenderPipelineState(descriptor: pipelineDescriptor))!
         
         let size = vector_float2(Float(view.drawableSize.width), Float(view.drawableSize.height))
-        globalParams = GlobalParameters(metaballCount: 0, reso: size)
+        globalParams = GlobalParameters(metaballCount: 0, reso: size, scale: 0.3, gradient: 6)
     }
     
     func prepareDisplay() {
@@ -87,6 +91,7 @@ class BGDisplay: NSObject {
         renderEncoder.setRenderPipelineState(pipelineState)
         renderEncoder.setFragmentBuffer(metaballsBuffer, offset: 0, index: 0)
         renderEncoder.setFragmentBytes(&globalParams, length: MemoryLayout<GlobalParameters>.stride, index: 1)
+        renderEncoder.setFragmentTexture(distortionTexture, index: 2)
         
         renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
     }

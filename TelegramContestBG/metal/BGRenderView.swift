@@ -87,6 +87,19 @@ class BGRenderView: MTKView {
         display.update(metaballs: metaballs)
         setNeedsDisplay()
     }
+    
+    func update(gradient: Float? = nil, scale: Float? = nil) {
+        mutex.lock()
+        defer { mutex.unlock() }
+        
+        if let g = gradient {
+            display.globalParams.gradient = g
+        }
+        if let s = scale {
+            display.globalParams.scale = s
+        }
+        setNeedsDisplay()
+    }
 }
 
 extension BGRenderView: MTKViewDelegate {

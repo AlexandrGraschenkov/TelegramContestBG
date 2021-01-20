@@ -24,6 +24,8 @@
 		FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5B25B3865E005C5C7D /* Extensions.swift */; };
 		FAE41E6025B48E3D005C5C7D /* TimingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */; };
 		FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */; };
+		FAE41E6625B773CE005C5C7D /* metal_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6525B773CE005C5C7D /* metal_extensions.swift */; };
+		FAE41E6C25B77805005C5C7D /* distort_displacement.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE41E6B25B77805005C5C7D /* distort_displacement.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		FAE41E5B25B3865E005C5C7D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingSlider.swift; sourceTree = "<group>"; };
 		FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClipSlider.swift; sourceTree = "<group>"; };
+		FAE41E6525B773CE005C5C7D /* metal_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metal_extensions.swift; sourceTree = "<group>"; };
+		FAE41E6B25B77805005C5C7D /* distort_displacement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distort_displacement.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				FAE41DE125B2CB3F005C5C7D /* Main.storyboard */,
 				FAE41DE425B2CB42005C5C7D /* Assets.xcassets */,
 				FAE41DE625B2CB42005C5C7D /* LaunchScreen.storyboard */,
+				FAE41E6B25B77805005C5C7D /* distort_displacement.png */,
 				FAE41DE925B2CB42005C5C7D /* Info.plist */,
 			);
 			path = TelegramContestBG;
@@ -99,6 +104,7 @@
 				FAE41E4625B2E0B7005C5C7D /* Metaball.swift */,
 				FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */,
 				FAE41E3F25B2D865005C5C7D /* Metaball.metal */,
+				FAE41E6525B773CE005C5C7D /* metal_extensions.swift */,
 			);
 			path = metal;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE41E6C25B77805005C5C7D /* distort_displacement.png in Resources */,
 				FAE41DE825B2CB42005C5C7D /* LaunchScreen.storyboard in Resources */,
 				FAE41DE525B2CB42005C5C7D /* Assets.xcassets in Resources */,
 				FAE41DE325B2CB3F005C5C7D /* Main.storyboard in Resources */,
@@ -196,6 +203,7 @@
 			files = (
 				FAE41E5525B381A7005C5C7D /* TimingControl.swift in Sources */,
 				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
+				FAE41E6625B773CE005C5C7D /* metal_extensions.swift in Sources */,
 				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
 				FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */,
 				FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */,

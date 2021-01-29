@@ -15,6 +15,9 @@
 		FA45E59E25C2E4B400649CBE /* ChatAnimationSettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */; };
 		FA71AA7725C34BBD0078DC95 /* ChatAnimationTypeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */; };
 		FA71AA7A25C359A30078DC95 /* ChatBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA7925C359A30078DC95 /* ChatBackground.swift */; };
+		FA71AA9225C45DB50078DC95 /* SettingsSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */; };
+		FA71AA9525C499290078DC95 /* ChatBackgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9425C499290078DC95 /* ChatBackgroundController.swift */; };
+		FA71AA9F25C4A7260078DC95 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9E25C4A7260078DC95 /* Alert.swift */; };
 		FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */; };
 		FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */; };
 		FAE41DE325B2CB3F005C5C7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE125B2CB3F005C5C7D /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationSettingsCells.swift; sourceTree = "<group>"; };
 		FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationTypeSelection.swift; sourceTree = "<group>"; };
 		FA71AA7925C359A30078DC95 /* ChatBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackground.swift; sourceTree = "<group>"; };
+		FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSerialization.swift; sourceTree = "<group>"; };
+		FA71AA9425C499290078DC95 /* ChatBackgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackgroundController.swift; sourceTree = "<group>"; };
+		FA71AA9E25C4A7260078DC95 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FAE41DD825B2CB3F005C5C7D /* TelegramContestBG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelegramContestBG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,11 +90,10 @@
 		FA45E5A225C2F6DD00649CBE /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				FA45E59A25C2AFED00649CBE /* ColorSelection.swift */,
-				FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */,
+				FA71AA9B25C4A2B40078DC95 /* views */,
 				FA45E5A325C2F6EA00649CBE /* model */,
+				FA71AA9C25C4A2CD0078DC95 /* vc */,
 				FA45E58A25C0A50400649CBE /* ChatAnimationSettings.swift */,
-				FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */,
 				FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */,
 			);
 			path = settings;
@@ -99,8 +104,27 @@
 			children = (
 				FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */,
 				FA45E58D25C0AAB600649CBE /* ChatAnimationSettingsModel.swift */,
+				FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		FA71AA9B25C4A2B40078DC95 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FA45E59A25C2AFED00649CBE /* ColorSelection.swift */,
+				FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		FA71AA9C25C4A2CD0078DC95 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */,
+				FA71AA9425C499290078DC95 /* ChatBackgroundController.swift */,
+			);
+			path = vc;
 			sourceTree = "<group>";
 		};
 		FAE41DCF25B2CB3F005C5C7D = {
@@ -158,6 +182,7 @@
 				FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */,
 				FAE41E2325B2D09D005C5C7D /* Mutex.swift */,
 				FAE41E5B25B3865E005C5C7D /* Extensions.swift */,
+				FA71AA9E25C4A7260078DC95 /* Alert.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -258,6 +283,8 @@
 				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
 				FAE41E6625B773CE005C5C7D /* metal_extensions.swift in Sources */,
 				FA45E59E25C2E4B400649CBE /* ChatAnimationSettingsCells.swift in Sources */,
+				FA71AA9525C499290078DC95 /* ChatBackgroundController.swift in Sources */,
+				FA71AA9225C45DB50078DC95 /* SettingsSerialization.swift in Sources */,
 				FA45E58B25C0A50400649CBE /* ChatAnimationSettings.swift in Sources */,
 				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
 				FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */,
@@ -269,6 +296,7 @@
 				FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */,
 				FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */,
 				FA71AA7A25C359A30078DC95 /* ChatBackground.swift in Sources */,
+				FA71AA9F25C4A7260078DC95 /* Alert.swift in Sources */,
 				FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */,
 				FAE41E5825B3825B005C5C7D /* TimingModel.swift in Sources */,
 				FA45E58E25C0AAB600649CBE /* ChatAnimationSettingsModel.swift in Sources */,

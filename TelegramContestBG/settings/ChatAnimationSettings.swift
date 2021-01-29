@@ -59,13 +59,26 @@ class ChatAnimationSettings: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(dissmiss))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Apply", style: UIBarButtonItem.Style.done, target: self, action: #selector(dissmiss))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Apply", style: UIBarButtonItem.Style.done, target: self, action: #selector(apply))
         navigationItem.title = "Animation Settings"
         
-        settings = ChatAnimationSettingsModel()
+        settings = ChatAnimationSettingsModel.fromDefaults()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        tap.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(tap)
+    }
+    
+    @objc func onTap() {
+        view.endEditing(true)
     }
     
     @objc func dissmiss() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func apply() {
+        settings.saveToDefaults()
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -123,13 +136,50 @@ private extension ChatAnimationSettings {
         present(alert, animated: true, completion: nil)
     }
     func actionShareParametrs() {
+        guard let path = settings.saveToDocuments() else {
+            return
+        }
         
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+//        alert.addActivityIndicator()
+//        present(alert, animated: true, completion: nil)
+        let vc = UIActivityViewController(activityItems: [URL(fileURLWithPath: path)], applicationActivities: nil)
+        present(vc, animated: true, completion: {
+//            alert.dismiss(animated: true, completion: nil)
+        })
     }
     func actionImportParameters() {
-        
+        let documentsPicker = UIDocumentPickerViewController(documentTypes: ["public.json"], in: .open)
+        documentsPicker.delegate = self
+//        documentsPicker.modalPresentationStyle = .fullScreen
+        present(documentsPicker, animated: true, completion: nil)
     }
     func actionRestoreParametrs() {
+        settings = ChatAnimationSettingsModel()
+        tableView.reloadData()
+    }
+    
+    func openBackgroundExample() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier:  "background_vc") as? ChatBackgroundController else {
+            return
+        }
         
+        vc.settings = settings
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+
+extension ChatAnimationSettings: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        if let err = settings.loadFrom(url: url) {
+            let alert = UIAlertController(title: "Can't import settings", message: err.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else {
+            print("Success loaded")
+            tableView.reloadData()
+        }
     }
 }
 
@@ -196,6 +246,11 @@ extension ChatAnimationSettings {
         let hexColor = settings.backgroundColors[indexPath.row]
         let color = UIColor(hex: hexColor) ?? .white
         cell.setup(name: "Color \(indexPath.row+1)", color: color)
+        cell.colorView.onChange = { [weak self] color in
+            guard let `self` = self else { return }
+            self.settings.backgroundColors[indexPath.row] = color.hex()
+            self.lastBgCell?.displayView.colors = self.settings.backgroundColorsValues
+        }
         return cell
     }
     
@@ -205,9 +260,10 @@ extension ChatAnimationSettings {
         }
         
         lastBgCell = cell
-        let colors = settings.backgroundColors.map({UIColor(hex: $0) ?? UIColor.white })
-        print(cell.display)
-        cell.display.colors = colors
+        cell.displayView.colors = settings.backgroundColorsValues
+        cell.openPressed = {[weak self] in
+            self?.openBackgroundExample()
+        }
         return cell
     }
     
@@ -219,7 +275,11 @@ extension ChatAnimationSettings {
         let timing = settings.messages[settingsKey]!.timing[timingKey]!
         cell.setup(name: timingKey, timing: timing)
         cell.timingView.onChange = {[weak self] model in
-            self?.settings.messages[self!.settingsKey]?.timing[timingKey] = model
+            guard let `self` = self else { return }
+            self.settings.messages[self.settingsKey]?.timing[timingKey] = model
+            if case .background = self.settingsKey {
+                self.lastBgCell?.displayView.timing = model
+            }
         }
         return cell
     }

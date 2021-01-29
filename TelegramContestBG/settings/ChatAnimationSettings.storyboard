@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -107,7 +108,7 @@
                                             <rect key="frame" x="0.0" y="216" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="Open Full Screen"/>
                                             <connections>
                                                 <action selector="openPressedAction" destination="ssj-JO-05r" eventType="touchUpInside" id="jkD-i0-xaF"/>
@@ -116,7 +117,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="display" destination="Cct-wX-pIB" id="PtX-js-mRh"/>
+                                    <outlet property="displayView" destination="Cct-wX-pIB" id="0O0-SE-cpz"/>
                                     <outlet property="openButton" destination="fQe-8n-Vw5" id="1mL-yC-dOW"/>
                                 </connections>
                             </tableViewCell>
@@ -128,14 +129,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW0-bc-wmt">
-                                            <rect key="frame" x="20" y="0.0" width="272" height="50"/>
+                                            <rect key="frame" x="16" y="0.0" width="278" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DB1-Kw-ngB" customClass="ColorSelection" customModule="TelegramContestBG" customModuleProvider="target">
-                                            <rect key="frame" x="300" y="8" width="94" height="34"/>
+                                            <rect key="frame" x="304" y="8" width="90" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -159,6 +160,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dU-hs-4hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="724.63768115942037" y="-334.15178571428572"/>
+        </scene>
+        <!--Chat Background Controller-->
+        <scene sceneID="AKc-Ca-uIA">
+            <objects>
+                <viewController storyboardIdentifier="background_vc" id="Kds-Db-6IT" customClass="ChatBackgroundController" customModule="TelegramContestBG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6is-KX-n0F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mtkView contentMode="scaleToFill" fixedFrame="YES" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="BVa-NC-fo3" customClass="ChatBackground" customModule="TelegramContestBG" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mtkView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itM-AU-Fre">
+                                <rect key="frame" x="0.0" y="800" width="414" height="96"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1aT-UU-O4H">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzo-oM-sHa">
+                                            <rect key="frame" x="132" y="0.0" width="150" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="FqU-Mc-x1m"/>
+                                                <constraint firstAttribute="width" constant="150" id="sLa-AV-f8p"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <state key="normal" title="Animate"/>
+                                            <connections>
+                                                <action selector="animate" destination="Kds-Db-6IT" eventType="touchUpInside" id="4V6-is-G26"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wzo-oM-sHa" firstAttribute="centerX" secondItem="1aT-UU-O4H" secondAttribute="centerX" id="DkT-oc-CEX"/>
+                                        <constraint firstItem="Wzo-oM-sHa" firstAttribute="top" secondItem="1aT-UU-O4H" secondAttribute="top" id="TBF-yi-QfB"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="systemChromeMaterial"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RYE-Gn-SJe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="itM-AU-Fre" firstAttribute="trailing" secondItem="RYE-Gn-SJe" secondAttribute="trailing" id="4Qn-Em-khI"/>
+                            <constraint firstAttribute="bottom" secondItem="itM-AU-Fre" secondAttribute="bottom" id="WYe-A9-Ap1"/>
+                            <constraint firstItem="RYE-Gn-SJe" firstAttribute="bottom" secondItem="Wzo-oM-sHa" secondAttribute="bottom" constant="12" id="kyq-C5-goF"/>
+                            <constraint firstItem="itM-AU-Fre" firstAttribute="leading" secondItem="RYE-Gn-SJe" secondAttribute="leading" id="sPJ-9Y-tSD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bw4-a2-E1i"/>
+                    <connections>
+                        <outlet property="display" destination="BVa-NC-fo3" id="fBX-2f-Sxr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufs-tN-TWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476.8115942028987" y="-334.15178571428572"/>
         </scene>
     </scenes>
     <resources>

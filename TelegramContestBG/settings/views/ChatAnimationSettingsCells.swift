@@ -8,9 +8,18 @@
 import UIKit
 
 class BackgroundCell: UITableViewCell {
-    @IBOutlet weak var display: ChatBackground!
+    @IBOutlet weak var displayView: ChatBackground!
     @IBOutlet weak var openButton: UIButton!
     var openPressed: (()->())?
+    
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(displayPressedAction))
+        displayView.isUserInteractionEnabled = true
+        displayView.addGestureRecognizer(tap)
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -19,6 +28,11 @@ class BackgroundCell: UITableViewCell {
     
     @IBAction func openPressedAction() {
         openPressed?()
+    }
+    
+    @objc func displayPressedAction() {
+        displayView.runNextAnim()
+//        displayPressed?()
     }
 }
 

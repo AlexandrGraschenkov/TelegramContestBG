@@ -10,7 +10,8 @@ import UIKit
 class ColorSelection: UITextField {
     private var textCheckDelegate: ColorSelectionDelegate?
     private var _color: UIColor = .white
-    private var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+    private var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
+    var onChange: ((UIColor)->())? = nil
     var color: UIColor {
         set {
             updateColor(color: newValue)
@@ -22,26 +23,29 @@ class ColorSelection: UITextField {
     }
     
     func setup(force: Bool = false) {
-        if delegate != nil && !force { return }
+        layer.cornerRadius = 8.0
+        layer.masksToBounds = true
         
+        if delegate != nil { return }
+        
+        returnKeyType = .done
         autocapitalizationType = .allCharacters
         autocorrectionType = .no
         textCheckDelegate = ColorSelectionDelegate()
         textCheckDelegate?.onTextChange = {[weak self] text in
             if let newColor = UIColor(hex: text) {
                 self?.updateColor(color: newColor)
+                self?.onChange?(newColor)
             }
         }
         delegate = textCheckDelegate
-        layer.cornerRadius = 8.0
-        layer.masksToBounds = true
         borderStyle = .none
-        font = UIFont.systemFont(ofSize: 17)
+        font = UIFont(name: "Menlo-Regular", size: 17)
         updateText()
         updateColor(color: _color)
     }
     
-    private func updateText() {
+    fileprivate func updateText() {
         text = "#" + _color.hex()
         textColor = _color.isLight() ? UIColor.black : UIColor.white
     }
@@ -95,6 +99,16 @@ class ColorSelectionDelegate: NSObject, UITextFieldDelegate {
             onTextChange?(text)
         }
         return ok
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        (textField as? ColorSelection)?.updateText()
+        return true
     }
 }
 

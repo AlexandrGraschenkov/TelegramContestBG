@@ -38,7 +38,7 @@ enum TimingModelName: String, Codable {
     case scale = "scale"
 }
 
-struct ChatMessagesAnimModel: Codable {
+public struct ChatMessagesAnimModel: Codable {
     var shortName: String
     var fullName: String
     var timing: [TimingModelName: TimingModel]
@@ -50,23 +50,25 @@ struct ChatMessagesAnimModel: Codable {
     }
 }
 
-class ChatAnimationSettingsModel: Codable {
-    var backgroundColors: [String]
-    var messages: [MessagesKey: ChatMessagesAnimModel]
+public class ChatAnimationSettingsModel: Codable {
+    public var backgroundColors: [String]
+    public var messages: [MessagesKey: ChatMessagesAnimModel]
     
-    func clone() -> ChatAnimationSettingsModel {
+    public func clone() -> ChatAnimationSettingsModel {
         let cl = ChatAnimationSettingsModel()
         cl.backgroundColors = backgroundColors
         cl.messages = messages
         return cl
     }
     
+    static let shared = fromDefaults()
+    
     init() {
         backgroundColors = Self.defaultBackgroundColors
         messages = Self.defaultMessages
     }
     
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: MessagesKey.self)
         backgroundColors = try container.decode([String].self, forKey: .backgroundColors)
         messages = [:]
@@ -77,7 +79,7 @@ class ChatAnimationSettingsModel: Codable {
     }
     
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MessagesKey.self)
         try container.encode(backgroundColors, forKey: .backgroundColors)
         for (key, val) in messages {
@@ -86,7 +88,7 @@ class ChatAnimationSettingsModel: Codable {
     }
     
     
-    enum MessagesKey: String, CodingKey {
+    public enum MessagesKey: String, CodingKey {
         case backgroundColors, background, smallMessage, bigMessage, linkPreview, singleEmoji, sticker, voiceMessage, videoMessage
         
         static let allMessage: [MessagesKey] = [.background, .smallMessage, .bigMessage, .linkPreview, .singleEmoji, .sticker, .voiceMessage, .videoMessage]
@@ -103,4 +105,10 @@ class ChatAnimationSettingsModel: Codable {
         .videoMessage: .defaultVideoMessage,
     ]
     private static let defaultBackgroundColors = ["FFF6BF", "76A076", "F6E477", "316B4D"]
+}
+
+extension ChatAnimationSettingsModel {
+    public var backgroundColorsValues: [UIColor] {
+        return backgroundColors.map({UIColor(hex: $0) ?? .white})
+    }
 }

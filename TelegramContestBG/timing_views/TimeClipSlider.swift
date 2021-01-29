@@ -44,7 +44,7 @@ class TimeClipSlider: UISlider {
         let clear = UIImage(named: "clear")
         setMinimumTrackImage(clear, for: .normal)
         setMaximumTrackImage(clear, for: .normal)
-        isExclusiveTouch = true
+//        isExclusiveTouch = true
 //        isContinuous = false
         
         let lineImg = UIImage(named: "clip_thumb_line")?.resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 7, bottom: 25, right: 7), resizingMode: .tile)

@@ -20,12 +20,14 @@ class BGRenderView: MTKView {
         let d = device ?? MTLCreateSystemDefaultDevice()!
         super.init(frame: frameRect, device: d)
         configureWithDevice(d)
+        setup()
     }
     
     required init(coder: NSCoder)
     {
         super.init(coder: coder)
         configureWithDevice(MTLCreateSystemDefaultDevice()!)
+        setup()
     }
     
     private func configureWithDevice(_ device : MTLDevice) {
@@ -55,6 +57,10 @@ class BGRenderView: MTKView {
     
     override func draw(_ rect: CGRect) {
         drawAll()
+    }
+    
+    open func setup() {
+        
     }
     
     func drawAll() {

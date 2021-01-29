@@ -79,7 +79,7 @@ class BGDisplay: NSObject {
         
         var metaShaderVals = metaballs.map{$0.shader}
         metaballsBuffer = device.makeBuffer(arr: &metaShaderVals)
-        print(metaballsBuffer)
+//        print(metaballsBuffer)
 //        updateBuffer(time, metaballsBuffer)
         
 //        for (i,m) in metaballs.enumerated() {

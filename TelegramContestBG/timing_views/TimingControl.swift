@@ -22,11 +22,16 @@ class TimingControl: UIControl {
     var clipBeginLabel: UILabel!
     var clipEndLabel: UILabel!
     var timingLayer: CAShapeLayer!
+    var minTimeDistF: CGFloat = 5
+    var onChange: ((TimingModel)->())?
+    private var lastSliderRect: CGRect = .zero
     private let thumbSize: CGSize = CGSize(width: 30, height: 30)
     private var innerChangeModel: Bool = false
     var model: TimingModel = TimingModel.zero {
         didSet {
-            if !innerChangeModel {
+            if innerChangeModel {
+                onChange?(model)
+            } else {
                 updatedModel()
             }
         }
@@ -146,21 +151,28 @@ class TimingControl: UIControl {
             let l = w * CGFloat(model.startOffsetF) / CGFloat(model.durationF)
             let r = w * CGFloat(model.endOffsetF) / CGFloat(model.durationF)
             sliderRect = sliderRect.inset(left: l, right: r)
+            sliderRect = sliderRect.roundRect()
         }
         
-        topSlider.frame = CGRect(x: sliderRect.minX, y: sliderRect.minY - sliderHeight/2, width: sliderRect.width, height: sliderHeight)
-        botSlider.frame = CGRect(x: sliderRect.minX, y: sliderRect.maxY - sliderHeight/2, width: sliderRect.width, height: sliderHeight)
-        updateEase(label: topLabel)
-        updateEase(label: botLabel)
+        if lastSliderRect != sliderRect {
+            lastSliderRect = sliderRect
+            topSlider.frame = CGRect(x: sliderRect.minX, y: sliderRect.minY - sliderHeight/2, width: sliderRect.width, height: sliderHeight)
+            botSlider.frame = CGRect(x: sliderRect.minX, y: sliderRect.maxY - sliderHeight/2, width: sliderRect.width, height: sliderHeight)
+            updateEase(label: topLabel)
+            updateEase(label: botLabel)
+        }
         
         if withClipSliders {
             let clipRect = rect.inset(by: sliderClipInset)
             clipBeginSlider.frame = clipRect
             clipEndSlider.frame = clipRect
+            updateClip(label: clipEndLabel)
+            updateClip(label: clipBeginLabel)
         }
     }
     
     @objc func sliderChanges(_ slider: UISlider) {
+        // TODO: think about model binding
         innerChangeModel = true
         if slider == topSlider {
             model.endEase = CGFloat(1 - slider.value)
@@ -174,6 +186,12 @@ class TimingControl: UIControl {
             if !slider.isTracking {
                 slider.value = round(slider.value)
             }
+            
+            var val = CGFloat(slider.value)
+            if val + round(model.endOffsetF) + minTimeDistF > model.durationF {
+                val = model.durationF - round(model.endOffsetF) - minTimeDistF
+                slider.value = Float(val)
+            }
             model.startOffsetF = CGFloat(slider.value)
             layoutSliders(withClipSliders: false)
             updateCurve()
@@ -182,7 +200,12 @@ class TimingControl: UIControl {
             if !slider.isTracking {
                 slider.value = round(slider.value)
             }
-            model.endOffsetF = CGFloat(slider.maximumValue - slider.value)
+            var val = CGFloat(slider.maximumValue - slider.value)
+            if val + round(model.startOffsetF) + minTimeDistF > model.durationF {
+                val = model.durationF - round(model.startOffsetF) - minTimeDistF
+                slider.value = slider.maximumValue - Float(val)
+            }
+            model.endOffsetF = val
             layoutSliders(withClipSliders: false)
             updateCurve()
             updateClip(label: clipEndLabel)
@@ -232,7 +255,7 @@ fileprivate extension TimingControl {
         labFrame.origin.y = thumbRect.midY - labFrame.height / 2.0
         let labelVisible: Bool
         if isBegin {
-            labelVisible = !labFrame.intersects(clipEndLabel.frame)
+            labelVisible = labFrame.maxX < clipEndLabel.frame.minX
         } else {
             labelVisible = bounds.contains(labFrame)
         }

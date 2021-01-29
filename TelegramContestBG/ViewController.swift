@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var renderView: BGRenderView!
+    @IBOutlet weak var renderView: ChatBackground!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var timeControl: TimingControl!
     @IBOutlet weak var scaleSlider: UISlider!
@@ -19,8 +19,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.contentSize = CGSize(width: 1, height: timeControl.frame.maxY + 20)
-        renderView.update(metaballs: generateMetaballs(percent: 0))
-        timeControl.model = TimingModel(durationF: 60, startOffsetF: 0, endOffsetF: 0, startEase: 0, endEase: 0)
+        timeControl.model.durationF = 60
+        timeControl.onChange = { [weak self] model in
+            self?.renderView.timing = model
+        }
         
         scaleSlider.maximumValue = 1
         scaleSlider.minimumValue = 0.05
@@ -99,13 +101,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func runAnim() {
-        _ = DisplayLinkAnimator.animate(duration: 5.0) { (percent) in
-            var percent = percent
-            if percent == 1 {
-                percent = 0
-            }
-            self.renderView.update(metaballs: self.generateMetaballs(percent: percent))
-        }
+        renderView.runNextAnim()
     }
     
     @IBAction func sliderChanged(_ slider: UISlider) {
@@ -114,6 +110,10 @@ class ViewController: UIViewController {
         } else if slider == gradientSlider {
             renderView.update(gradient: slider.value)
         }
+    }
+    
+    @IBAction func openSettings() {
+        ChatAnimationSettings.displayFrom(vc: self)
     }
 }
 

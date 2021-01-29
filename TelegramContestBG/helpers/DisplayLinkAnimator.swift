@@ -25,7 +25,7 @@ public class DisplayLinkAnimator: NSObject {
         super.init()
         
         link = CADisplayLink.init(target: self, selector: #selector(step(link:)))
-        link.add(to: .current, forMode: .default)
+        link.add(to: .current, forMode: .common)
     }
     
     fileprivate func cancel() {

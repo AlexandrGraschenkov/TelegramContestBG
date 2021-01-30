@@ -51,8 +51,9 @@ class GAChatAnimationSettingsVC: UITableViewController {
     // MARK: - VC
     
     static func displayFrom(vc: UIViewController) {
-        let selfVc = UIStoryboard(name: "ChatAnimationSettings", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "settings_nav")
-        vc.present(selfVc, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: GAChatAnimationSettingsVC(style: .grouped))
+//        let selfVc = UIStoryboard(name: "ChatAnimationSettings", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "settings_nav")
+        vc.present(nav, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -67,6 +68,11 @@ class GAChatAnimationSettingsVC: UITableViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
         tap.cancelsTouchesInView = false
         tableView.addGestureRecognizer(tap)
+        
+        tableView.register(GAActionCell.self, forCellReuseIdentifier: "action_cell")
+        tableView.register(GAColorSelectionCell.self, forCellReuseIdentifier: "color_cell")
+        tableView.register(GABackgroundCell.self, forCellReuseIdentifier: "background_cell")
+        tableView.register(GATimingCell.self, forCellReuseIdentifier: "timing_cell")
     }
     
     @objc func onTap() {
@@ -104,6 +110,9 @@ class GAChatAnimationSettingsVC: UITableViewController {
         }
         visible.append(IndexPath(row: 1, section: 0))
         tableView.reloadRows(at: visible, with: .fade)
+        if settingsKey == .background {
+            lastBgCell?.displayView.timing = settings.objects[settingsKey]!.timing[.background]!
+        }
     }
     
     func update(type: GAChatAnimModel.ObjectKey) {
@@ -160,10 +169,10 @@ private extension GAChatAnimationSettingsVC {
     }
     
     func openBackgroundExample() {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier:  "background_vc") as? ChatBackgroundController else {
-            return
-        }
-        
+//        guard let vc = self.storyboard?.instantiateViewController(withIdentifier:  "background_vc") as? ChatBackgroundController else {
+//            return
+//        }
+        let vc = ChatBackgroundController()
         vc.settings = settings
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -290,12 +299,7 @@ extension GAChatAnimationSettingsVC {
     func cellFor(action: CellAction, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         let cell: GAActionCell
-        switch action {
-        case .type, .duration:
-            cell = tableView.dequeueReusableCell(withIdentifier: "option_cell", for: indexPath) as! GAActionCell
-        default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "action_cell", for: indexPath) as! GAActionCell
-        }
+        cell = tableView.dequeueReusableCell(withIdentifier: "action_cell", for: indexPath) as! GAActionCell
         
         
         switch action {

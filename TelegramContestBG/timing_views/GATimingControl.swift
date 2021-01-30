@@ -99,8 +99,8 @@ class GATimingControl: UIControl {
         updateCurve()
         
         // Sliders
-        let sliderImg = UIImage(named: "slider_2")?.resizingCenter()
-        let clearImg = UIImage(named: "clear")
+        let sliderImg = UIImage(named: "ChatAnimSettings/slider_2")?.resizingCenter()
+        let clearImg = UIImage(named: "ChatAnimSettings/clear")
         
         topSlider = GATimingSlider(frame: .zero)
         topSlider.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]

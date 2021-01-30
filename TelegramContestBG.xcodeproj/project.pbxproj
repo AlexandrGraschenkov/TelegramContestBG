@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FA45E58B25C0A50400649CBE /* GAChatAnimationSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */; };
 		FA45E58E25C0AAB600649CBE /* GAChatAnimModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58D25C0AAB600649CBE /* GAChatAnimModel.swift */; };
-		FA45E59125C0AC5300649CBE /* ChatAnimationSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */; };
 		FA45E59425C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */; };
 		FA45E59B25C2AFED00649CBE /* GAColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59A25C2AFED00649CBE /* GAColorSelection.swift */; };
 		FA45E59E25C2E4B400649CBE /* GASettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59D25C2E4B400649CBE /* GASettingsCells.swift */; };
@@ -42,7 +41,6 @@
 /* Begin PBXFileReference section */
 		FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAChatAnimationSettingsVC.swift; sourceTree = "<group>"; };
 		FA45E58D25C0AAB600649CBE /* GAChatAnimModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAChatAnimModel.swift; sourceTree = "<group>"; };
-		FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatAnimationSettings.storyboard; sourceTree = "<group>"; };
 		FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatAnimationSettingsModel+Defaults.swift"; sourceTree = "<group>"; };
 		FA45E59A25C2AFED00649CBE /* GAColorSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAColorSelection.swift; sourceTree = "<group>"; };
 		FA45E59D25C2E4B400649CBE /* GASettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GASettingsCells.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 				FA45E5A325C2F6EA00649CBE /* model */,
 				FA71AA9C25C4A2CD0078DC95 /* vc */,
 				FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */,
-				FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 				FAE41E6C25B77805005C5C7D /* distort_displacement.png in Resources */,
 				FAE41DE825B2CB42005C5C7D /* LaunchScreen.storyboard in Resources */,
 				FAE41DE525B2CB42005C5C7D /* Assets.xcassets in Resources */,
-				FA45E59125C0AC5300649CBE /* ChatAnimationSettings.storyboard in Resources */,
 				FAE41DE325B2CB3F005C5C7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

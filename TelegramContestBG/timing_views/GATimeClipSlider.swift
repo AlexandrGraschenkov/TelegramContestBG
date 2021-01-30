@@ -40,14 +40,14 @@ class GATimeClipSlider: UISlider {
     }
     
     func setup() {
-        setThumbImage(UIImage(named: "clip_thumb_slider"), for: .normal)
-        let clear = UIImage(named: "clear")
+        setThumbImage(UIImage(named: "ChatAnimSettings/clip_thumb_slider"), for: .normal)
+        let clear = UIImage(named: "ChatAnimSettings/clear")
         setMinimumTrackImage(clear, for: .normal)
         setMaximumTrackImage(clear, for: .normal)
 //        isExclusiveTouch = true
 //        isContinuous = false
         
-        let lineImg = UIImage(named: "clip_thumb_line")?.resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 7, bottom: 25, right: 7), resizingMode: .tile)
+        let lineImg = UIImage(named: "ChatAnimSettings/clip_thumb_line")?.resizableImage(withCapInsets: UIEdgeInsets(top: 25, left: 7, bottom: 25, right: 7), resizingMode: .tile)
         line = UIImageView(image: lineImg)
         line.frame = CGRect(x: 0, y: 0, width: lineImg!.size.width, height: 100)
         insertSubview(line, at: 0)

@@ -7,51 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA45E58B25C0A50400649CBE /* ChatAnimationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58A25C0A50400649CBE /* ChatAnimationSettings.swift */; };
-		FA45E58E25C0AAB600649CBE /* ChatAnimationSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58D25C0AAB600649CBE /* ChatAnimationSettingsModel.swift */; };
+		FA45E58B25C0A50400649CBE /* GAChatAnimationSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */; };
+		FA45E58E25C0AAB600649CBE /* GAChatAnimModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E58D25C0AAB600649CBE /* GAChatAnimModel.swift */; };
 		FA45E59125C0AC5300649CBE /* ChatAnimationSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */; };
 		FA45E59425C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */; };
-		FA45E59B25C2AFED00649CBE /* ColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59A25C2AFED00649CBE /* ColorSelection.swift */; };
-		FA45E59E25C2E4B400649CBE /* ChatAnimationSettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */; };
+		FA45E59B25C2AFED00649CBE /* GAColorSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59A25C2AFED00649CBE /* GAColorSelection.swift */; };
+		FA45E59E25C2E4B400649CBE /* GASettingsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45E59D25C2E4B400649CBE /* GASettingsCells.swift */; };
 		FA71AA7725C34BBD0078DC95 /* ChatAnimationTypeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */; };
-		FA71AA7A25C359A30078DC95 /* ChatBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA7925C359A30078DC95 /* ChatBackground.swift */; };
-		FA71AA9225C45DB50078DC95 /* SettingsSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */; };
+		FA71AA7A25C359A30078DC95 /* GAChatBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA7925C359A30078DC95 /* GAChatBackground.swift */; };
+		FA71AA9225C45DB50078DC95 /* GAChatAnimModel+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9125C45DB50078DC95 /* GAChatAnimModel+Serialization.swift */; };
 		FA71AA9525C499290078DC95 /* ChatBackgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9425C499290078DC95 /* ChatBackgroundController.swift */; };
-		FA71AA9F25C4A7260078DC95 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71AA9E25C4A7260078DC95 /* Alert.swift */; };
 		FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */; };
 		FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */; };
 		FAE41DE325B2CB3F005C5C7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE125B2CB3F005C5C7D /* Main.storyboard */; };
 		FAE41DE525B2CB42005C5C7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE425B2CB42005C5C7D /* Assets.xcassets */; };
 		FAE41DE825B2CB42005C5C7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE41DE625B2CB42005C5C7D /* LaunchScreen.storyboard */; };
 		FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */; };
-		FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E2325B2D09D005C5C7D /* Mutex.swift */; };
+		FAE41E2425B2D09D005C5C7D /* GAMutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E2325B2D09D005C5C7D /* GAMutex.swift */; };
 		FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */; };
 		FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E3F25B2D865005C5C7D /* Metaball.metal */; };
 		FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4625B2E0B7005C5C7D /* Metaball.swift */; };
 		FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */; };
-		FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */; };
-		FAE41E5525B381A7005C5C7D /* TimingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5425B381A7005C5C7D /* TimingControl.swift */; };
-		FAE41E5825B3825B005C5C7D /* TimingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5725B3825B005C5C7D /* TimingModel.swift */; };
-		FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5B25B3865E005C5C7D /* Extensions.swift */; };
-		FAE41E6025B48E3D005C5C7D /* TimingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */; };
-		FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */; };
+		FAE41E5125B310D8005C5C7D /* GADisplayLinkAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5025B310D7005C5C7D /* GADisplayLinkAnimator.swift */; };
+		FAE41E5525B381A7005C5C7D /* GATimingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5425B381A7005C5C7D /* GATimingControl.swift */; };
+		FAE41E5825B3825B005C5C7D /* GATimingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5725B3825B005C5C7D /* GATimingModel.swift */; };
+		FAE41E5C25B3865E005C5C7D /* GAExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5B25B3865E005C5C7D /* GAExtensions.swift */; };
+		FAE41E6025B48E3D005C5C7D /* GATimingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E5F25B48E3D005C5C7D /* GATimingSlider.swift */; };
+		FAE41E6325B49B5A005C5C7D /* GATimeClipSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6225B49B5A005C5C7D /* GATimeClipSlider.swift */; };
 		FAE41E6625B773CE005C5C7D /* metal_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6525B773CE005C5C7D /* metal_extensions.swift */; };
 		FAE41E6C25B77805005C5C7D /* distort_displacement.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE41E6B25B77805005C5C7D /* distort_displacement.png */; };
-		FAE41E7025B8C950005C5C7D /* TimingCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6F25B8C94F005C5C7D /* TimingCurve.swift */; };
+		FAE41E7025B8C950005C5C7D /* GATimingCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE41E6F25B8C94F005C5C7D /* GATimingCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA45E58A25C0A50400649CBE /* ChatAnimationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationSettings.swift; sourceTree = "<group>"; };
-		FA45E58D25C0AAB600649CBE /* ChatAnimationSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationSettingsModel.swift; sourceTree = "<group>"; };
+		FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAChatAnimationSettingsVC.swift; sourceTree = "<group>"; };
+		FA45E58D25C0AAB600649CBE /* GAChatAnimModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAChatAnimModel.swift; sourceTree = "<group>"; };
 		FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatAnimationSettings.storyboard; sourceTree = "<group>"; };
 		FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatAnimationSettingsModel+Defaults.swift"; sourceTree = "<group>"; };
-		FA45E59A25C2AFED00649CBE /* ColorSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelection.swift; sourceTree = "<group>"; };
-		FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationSettingsCells.swift; sourceTree = "<group>"; };
+		FA45E59A25C2AFED00649CBE /* GAColorSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAColorSelection.swift; sourceTree = "<group>"; };
+		FA45E59D25C2E4B400649CBE /* GASettingsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GASettingsCells.swift; sourceTree = "<group>"; };
 		FA71AA7625C34BBD0078DC95 /* ChatAnimationTypeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnimationTypeSelection.swift; sourceTree = "<group>"; };
-		FA71AA7925C359A30078DC95 /* ChatBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackground.swift; sourceTree = "<group>"; };
-		FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSerialization.swift; sourceTree = "<group>"; };
+		FA71AA7925C359A30078DC95 /* GAChatBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAChatBackground.swift; sourceTree = "<group>"; };
+		FA71AA9125C45DB50078DC95 /* GAChatAnimModel+Serialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GAChatAnimModel+Serialization.swift"; sourceTree = "<group>"; };
 		FA71AA9425C499290078DC95 /* ChatBackgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBackgroundController.swift; sourceTree = "<group>"; };
-		FA71AA9E25C4A7260078DC95 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FAE41DD825B2CB3F005C5C7D /* TelegramContestBG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelegramContestBG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE41DDB25B2CB3F005C5C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE41DDF25B2CB3F005C5C7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,20 +58,20 @@
 		FAE41DE725B2CB42005C5C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE41DE925B2CB42005C5C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGRenderView.swift; sourceTree = "<group>"; };
-		FAE41E2325B2D09D005C5C7D /* Mutex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
+		FAE41E2325B2D09D005C5C7D /* GAMutex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAMutex.swift; sourceTree = "<group>"; };
 		FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGDisplay.swift; sourceTree = "<group>"; };
 		FAE41E3F25B2D865005C5C7D /* Metaball.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Metaball.metal; sourceTree = "<group>"; };
 		FAE41E4625B2E0B7005C5C7D /* Metaball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metaball.swift; sourceTree = "<group>"; };
 		FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAlignedArray.swift; sourceTree = "<group>"; };
-		FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLinkAnimator.swift; sourceTree = "<group>"; };
-		FAE41E5425B381A7005C5C7D /* TimingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingControl.swift; sourceTree = "<group>"; };
-		FAE41E5725B3825B005C5C7D /* TimingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingModel.swift; sourceTree = "<group>"; };
-		FAE41E5B25B3865E005C5C7D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingSlider.swift; sourceTree = "<group>"; };
-		FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeClipSlider.swift; sourceTree = "<group>"; };
+		FAE41E5025B310D7005C5C7D /* GADisplayLinkAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GADisplayLinkAnimator.swift; sourceTree = "<group>"; };
+		FAE41E5425B381A7005C5C7D /* GATimingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATimingControl.swift; sourceTree = "<group>"; };
+		FAE41E5725B3825B005C5C7D /* GATimingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATimingModel.swift; sourceTree = "<group>"; };
+		FAE41E5B25B3865E005C5C7D /* GAExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAExtensions.swift; sourceTree = "<group>"; };
+		FAE41E5F25B48E3D005C5C7D /* GATimingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATimingSlider.swift; sourceTree = "<group>"; };
+		FAE41E6225B49B5A005C5C7D /* GATimeClipSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATimeClipSlider.swift; sourceTree = "<group>"; };
 		FAE41E6525B773CE005C5C7D /* metal_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metal_extensions.swift; sourceTree = "<group>"; };
 		FAE41E6B25B77805005C5C7D /* distort_displacement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distort_displacement.png; sourceTree = "<group>"; };
-		FAE41E6F25B8C94F005C5C7D /* TimingCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingCurve.swift; sourceTree = "<group>"; };
+		FAE41E6F25B8C94F005C5C7D /* GATimingCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATimingCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,7 @@
 				FA71AA9B25C4A2B40078DC95 /* views */,
 				FA45E5A325C2F6EA00649CBE /* model */,
 				FA71AA9C25C4A2CD0078DC95 /* vc */,
-				FA45E58A25C0A50400649CBE /* ChatAnimationSettings.swift */,
+				FA45E58A25C0A50400649CBE /* GAChatAnimationSettingsVC.swift */,
 				FA45E59025C0AC5300649CBE /* ChatAnimationSettings.storyboard */,
 			);
 			path = settings;
@@ -103,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				FA45E59325C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift */,
-				FA45E58D25C0AAB600649CBE /* ChatAnimationSettingsModel.swift */,
-				FA71AA9125C45DB50078DC95 /* SettingsSerialization.swift */,
+				FA45E58D25C0AAB600649CBE /* GAChatAnimModel.swift */,
+				FA71AA9125C45DB50078DC95 /* GAChatAnimModel+Serialization.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -112,8 +110,8 @@
 		FA71AA9B25C4A2B40078DC95 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				FA45E59A25C2AFED00649CBE /* ColorSelection.swift */,
-				FA45E59D25C2E4B400649CBE /* ChatAnimationSettingsCells.swift */,
+				FA45E59A25C2AFED00649CBE /* GAColorSelection.swift */,
+				FA45E59D25C2E4B400649CBE /* GASettingsCells.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -167,7 +165,7 @@
 			children = (
 				FAE41E4925B2E2AE005C5C7D /* PageAlignedArray.swift */,
 				FAE41E1725B2CF98005C5C7D /* BGRenderView.swift */,
-				FA71AA7925C359A30078DC95 /* ChatBackground.swift */,
+				FA71AA7925C359A30078DC95 /* GAChatBackground.swift */,
 				FAE41E4625B2E0B7005C5C7D /* Metaball.swift */,
 				FAE41E2B25B2D0FF005C5C7D /* BGDisplay.swift */,
 				FAE41E3F25B2D865005C5C7D /* Metaball.metal */,
@@ -179,10 +177,9 @@
 		FAE41E1F25B2D087005C5C7D /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41E5025B310D7005C5C7D /* DisplayLinkAnimator.swift */,
-				FAE41E2325B2D09D005C5C7D /* Mutex.swift */,
-				FAE41E5B25B3865E005C5C7D /* Extensions.swift */,
-				FA71AA9E25C4A7260078DC95 /* Alert.swift */,
+				FAE41E5025B310D7005C5C7D /* GADisplayLinkAnimator.swift */,
+				FAE41E2325B2D09D005C5C7D /* GAMutex.swift */,
+				FAE41E5B25B3865E005C5C7D /* GAExtensions.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -190,9 +187,9 @@
 		FAE41E5325B3818A005C5C7D /* timing_views */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41E5425B381A7005C5C7D /* TimingControl.swift */,
-				FAE41E5F25B48E3D005C5C7D /* TimingSlider.swift */,
-				FAE41E6225B49B5A005C5C7D /* TimeClipSlider.swift */,
+				FAE41E5425B381A7005C5C7D /* GATimingControl.swift */,
+				FAE41E5F25B48E3D005C5C7D /* GATimingSlider.swift */,
+				FAE41E6225B49B5A005C5C7D /* GATimeClipSlider.swift */,
 			);
 			path = timing_views;
 			sourceTree = "<group>";
@@ -200,8 +197,8 @@
 		FAE41E7625B8CCAE005C5C7D /* timing_model */ = {
 			isa = PBXGroup;
 			children = (
-				FAE41E5725B3825B005C5C7D /* TimingModel.swift */,
-				FAE41E6F25B8C94F005C5C7D /* TimingCurve.swift */,
+				FAE41E5725B3825B005C5C7D /* GATimingModel.swift */,
+				FAE41E6F25B8C94F005C5C7D /* GATimingCurve.swift */,
 			);
 			path = timing_model;
 			sourceTree = "<group>";
@@ -278,31 +275,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE41E5525B381A7005C5C7D /* TimingControl.swift in Sources */,
+				FAE41E5525B381A7005C5C7D /* GATimingControl.swift in Sources */,
 				FA45E59425C1BB0600649CBE /* ChatAnimationSettingsModel+Defaults.swift in Sources */,
-				FAE41E2425B2D09D005C5C7D /* Mutex.swift in Sources */,
+				FAE41E2425B2D09D005C5C7D /* GAMutex.swift in Sources */,
 				FAE41E6625B773CE005C5C7D /* metal_extensions.swift in Sources */,
-				FA45E59E25C2E4B400649CBE /* ChatAnimationSettingsCells.swift in Sources */,
+				FA45E59E25C2E4B400649CBE /* GASettingsCells.swift in Sources */,
 				FA71AA9525C499290078DC95 /* ChatBackgroundController.swift in Sources */,
-				FA71AA9225C45DB50078DC95 /* SettingsSerialization.swift in Sources */,
-				FA45E58B25C0A50400649CBE /* ChatAnimationSettings.swift in Sources */,
+				FA71AA9225C45DB50078DC95 /* GAChatAnimModel+Serialization.swift in Sources */,
+				FA45E58B25C0A50400649CBE /* GAChatAnimationSettingsVC.swift in Sources */,
 				FAE41E4A25B2E2AE005C5C7D /* PageAlignedArray.swift in Sources */,
-				FAE41E6325B49B5A005C5C7D /* TimeClipSlider.swift in Sources */,
+				FAE41E6325B49B5A005C5C7D /* GATimeClipSlider.swift in Sources */,
 				FAE41E2C25B2D0FF005C5C7D /* BGDisplay.swift in Sources */,
 				FAE41DE025B2CB3F005C5C7D /* ViewController.swift in Sources */,
 				FAE41E4725B2E0B7005C5C7D /* Metaball.swift in Sources */,
 				FAE41E1825B2CF98005C5C7D /* BGRenderView.swift in Sources */,
-				FA45E59B25C2AFED00649CBE /* ColorSelection.swift in Sources */,
-				FAE41E5C25B3865E005C5C7D /* Extensions.swift in Sources */,
-				FAE41E5125B310D8005C5C7D /* DisplayLinkAnimator.swift in Sources */,
-				FA71AA7A25C359A30078DC95 /* ChatBackground.swift in Sources */,
-				FA71AA9F25C4A7260078DC95 /* Alert.swift in Sources */,
+				FA45E59B25C2AFED00649CBE /* GAColorSelection.swift in Sources */,
+				FAE41E5C25B3865E005C5C7D /* GAExtensions.swift in Sources */,
+				FAE41E5125B310D8005C5C7D /* GADisplayLinkAnimator.swift in Sources */,
+				FA71AA7A25C359A30078DC95 /* GAChatBackground.swift in Sources */,
 				FAE41E4025B2D865005C5C7D /* Metaball.metal in Sources */,
-				FAE41E5825B3825B005C5C7D /* TimingModel.swift in Sources */,
-				FA45E58E25C0AAB600649CBE /* ChatAnimationSettingsModel.swift in Sources */,
-				FAE41E6025B48E3D005C5C7D /* TimingSlider.swift in Sources */,
+				FAE41E5825B3825B005C5C7D /* GATimingModel.swift in Sources */,
+				FA45E58E25C0AAB600649CBE /* GAChatAnimModel.swift in Sources */,
+				FAE41E6025B48E3D005C5C7D /* GATimingSlider.swift in Sources */,
 				FAE41DDC25B2CB3F005C5C7D /* AppDelegate.swift in Sources */,
-				FAE41E7025B8C950005C5C7D /* TimingCurve.swift in Sources */,
+				FAE41E7025B8C950005C5C7D /* GATimingCurve.swift in Sources */,
 				FA71AA7725C34BBD0078DC95 /* ChatAnimationTypeSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

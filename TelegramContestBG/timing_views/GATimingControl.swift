@@ -7,27 +7,27 @@
 
 import UIKit
 
-class TimingControl: UIControl {
+class GATimingControl: UIControl {
     
     var controlInset = UIEdgeInsets(top: 50, left: 30, bottom: 50, right: 30)
     var sliderInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: -15)
     var sliderClipInset = UIEdgeInsets(top: 0, left: -17, bottom: 0, right: -17)
     
-    var topSlider: TimingSlider!
-    var botSlider: TimingSlider!
+    var topSlider: GATimingSlider!
+    var botSlider: GATimingSlider!
     var topLabel: UILabel!
     var botLabel: UILabel!
-    var clipBeginSlider: TimeClipSlider!
-    var clipEndSlider: TimeClipSlider!
+    var clipBeginSlider: GATimeClipSlider!
+    var clipEndSlider: GATimeClipSlider!
     var clipBeginLabel: UILabel!
     var clipEndLabel: UILabel!
     var timingLayer: CAShapeLayer!
     var minTimeDistF: CGFloat = 5
-    var onChange: ((TimingModel)->())?
+    var onChange: ((GATimingModel)->())?
     private var lastSliderRect: CGRect = .zero
     private let thumbSize: CGSize = CGSize(width: 30, height: 30)
     private var innerChangeModel: Bool = false
-    var model: TimingModel = TimingModel.zero {
+    var model: GATimingModel = GATimingModel.zero {
         didSet {
             if innerChangeModel {
                 onChange?(model)
@@ -102,7 +102,7 @@ class TimingControl: UIControl {
         let sliderImg = UIImage(named: "slider_2")?.resizingCenter()
         let clearImg = UIImage(named: "clear")
         
-        topSlider = TimingSlider(frame: .zero)
+        topSlider = GATimingSlider(frame: .zero)
         topSlider.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         topSlider.setMinimumTrackImage(clearImg, for: .normal)
         topSlider.setMaximumTrackImage(sliderImg, for: .normal)
@@ -113,7 +113,7 @@ class TimingControl: UIControl {
         setupEase(label: topLabel)
         addSubview(topLabel)
         
-        botSlider = TimingSlider(frame: .zero)
+        botSlider = GATimingSlider(frame: .zero)
         botSlider.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         botSlider.setMinimumTrackImage(sliderImg, for: .normal)
         botSlider.setMaximumTrackImage(clearImg, for: .normal)
@@ -124,10 +124,10 @@ class TimingControl: UIControl {
         setupEase(label: botLabel)
         addSubview(botLabel)
         
-        clipEndSlider = TimeClipSlider(frame: .zero)
+        clipEndSlider = GATimeClipSlider(frame: .zero)
         insertSubview(clipEndSlider, at: 1)
         clipEndSlider.addTarget(self, action: #selector(sliderChanges(_:)), for: .valueChanged)
-        clipBeginSlider = TimeClipSlider(frame: .zero)
+        clipBeginSlider = GATimeClipSlider(frame: .zero)
         insertSubview(clipBeginSlider, at: 1)
         clipBeginSlider.addTarget(self, action: #selector(sliderChanges(_:)), for: .valueChanged)
         
@@ -215,7 +215,7 @@ class TimingControl: UIControl {
 }
 
 // MARK: - Labels
-fileprivate extension TimingControl {
+fileprivate extension GATimingControl {
     
     func setupEase(label: UILabel) {
         label.font = UIFont.systemFont(ofSize: 15)
@@ -226,7 +226,7 @@ fileprivate extension TimingControl {
     
     func updateEase(label: UILabel) {
         let isTop = label == topLabel
-        let slider: TimingSlider = isTop ? topSlider : botSlider
+        let slider: GATimingSlider = isTop ? topSlider : botSlider
         let progress = isTop ? (1-topSlider.value) : botSlider.value
         let percent = Int(round(100 * progress))
         label.text = "\(percent)%"
@@ -245,7 +245,7 @@ fileprivate extension TimingControl {
     
     func updateClip(label: UILabel) {
         let isBegin = label == clipBeginLabel
-        let slider: TimeClipSlider = isBegin ? clipBeginSlider : clipEndSlider
+        let slider: GATimeClipSlider = isBegin ? clipBeginSlider : clipEndSlider
         let value = Int(round(slider.value))
         label.text = "\(value)f"
         let thumbRect = slider.convert(slider.thumbRect, to: self)

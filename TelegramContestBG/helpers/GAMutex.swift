@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal final class Mutex {
+internal final class GAMutex {
     private var mutex: pthread_mutex_t = {
         var mutex = pthread_mutex_t()
         pthread_mutex_init(&mutex, nil)

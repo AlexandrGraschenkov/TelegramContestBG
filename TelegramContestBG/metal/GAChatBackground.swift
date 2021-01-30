@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ChatBackground: BGRenderView {
+class GAChatBackground: BGRenderView {
 
     private(set) var progress: CGFloat = 0
     private(set) var animating: Bool = false
     private(set) var cancelLastAnim: (()->())?
-    var timing: TimingModel = .zero {
+    var timing: GATimingModel = .zero {
         didSet { colorsOrPointsUpdates() }
     }
     var colors: [UIColor] = [
@@ -64,7 +64,7 @@ class ChatBackground: BGRenderView {
         while toProgress > 1 {
             toProgress = toProgress - 1
         }
-        let cancel = DisplayLinkAnimator.animate(duration: Double(timing.durationSec)) {[weak self] (percent) in
+        let cancel = GADisplayLinkAnimator.animate(duration: Double(timing.durationSec)) {[weak self] (percent) in
             guard let `self` = self else { return }
             
             let done = percent == 1
@@ -84,7 +84,7 @@ class ChatBackground: BGRenderView {
     }
 }
 
-fileprivate extension ChatBackground {
+fileprivate extension GAChatBackground {
     
     func interpolate(points: [CGPoint], val: Float) -> CGPoint {
         var val = val

@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var renderView: ChatBackground!
+    @IBOutlet weak var renderView: GAChatBackground!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var timeControl: TimingControl!
+    @IBOutlet weak var timeControl: GATimingControl!
     @IBOutlet weak var scaleSlider: UISlider!
     @IBOutlet weak var gradientSlider: UISlider!
     
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func openSettings() {
-        ChatAnimationSettings.displayFrom(vc: self)
+        GAChatAnimationSettingsVC.displayFrom(vc: self)
     }
 }
 

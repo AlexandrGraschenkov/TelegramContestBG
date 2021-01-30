@@ -11,9 +11,9 @@ import UIKit
 public typealias Cancelable = ()->()
 
 /// Timer on **DisplayLink**
-public class DisplayLinkAnimator: NSObject {
+public class GADisplayLinkAnimator: NSObject {
     public static func animate(duration: Double, closure: @escaping (CGFloat)->()) -> Cancelable {
-        let anim = DisplayLinkAnimator(duration: duration, closure: closure)
+        let anim = GADisplayLinkAnimator(duration: duration, closure: closure)
         anim.retainSelf = anim
         return anim.cancel
     }

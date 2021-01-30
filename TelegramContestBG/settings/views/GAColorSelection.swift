@@ -8,7 +8,7 @@
 import UIKit
 
 class GAColorSelection: UITextField {
-    private var textCheckDelegate: ColorSelectionDelegate?
+    private var textCheckDelegate: GAColorSelectionDelegate?
     private var _color: UIColor = .white
     private var inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10)
     var onChange: ((UIColor)->())? = nil
@@ -31,7 +31,7 @@ class GAColorSelection: UITextField {
         returnKeyType = .done
         autocapitalizationType = .allCharacters
         autocorrectionType = .no
-        textCheckDelegate = ColorSelectionDelegate()
+        textCheckDelegate = GAColorSelectionDelegate()
         textCheckDelegate?.onTextChange = {[weak self] text in
             if let newColor = UIColor(hex: text) {
                 self?.updateColor(color: newColor)
@@ -80,7 +80,7 @@ class GAColorSelection: UITextField {
 }
 
 
-class ColorSelectionDelegate: NSObject, UITextFieldDelegate {
+class GAColorSelectionDelegate: NSObject, UITextFieldDelegate {
     var allowSymbols = CharacterSet(charactersIn: "#ABCDEF0123456789")
     var onTextChange: ((String)->())?
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimingSlider: UISlider {
+class GATimingSlider: UISlider {
 
     /*
     // Only override draw() if you perform custom drawing.

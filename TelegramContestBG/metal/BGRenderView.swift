@@ -13,7 +13,7 @@ class BGRenderView: MTKView {
     
     private var commandQueue: MTLCommandQueue! = nil
     private var display: BGDisplay!
-    private let mutex = Mutex()
+    private let mutex = GAMutex()
 
     override init(frame frameRect: CGRect, device: MTLDevice?)
     {

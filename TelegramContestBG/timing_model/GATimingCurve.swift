@@ -7,13 +7,13 @@
 
 import UIKit
 
-class TimingCurve {
+class GATimingCurve {
     
-    public static let `default`: TimingCurve = TimingCurve(functionName: .default)
-    public static let linear: TimingCurve = TimingCurve(closure: {$0})
-    public static let easeIn: TimingCurve = TimingCurve(functionName: .easeIn)
-    public static let easeOut: TimingCurve = TimingCurve(functionName: .easeOut)
-    public static let easeInOut: TimingCurve = TimingCurve(functionName: .easeInEaseOut)
+    public static let `default`: GATimingCurve = GATimingCurve(functionName: .default)
+    public static let linear: GATimingCurve = GATimingCurve(closure: {$0})
+    public static let easeIn: GATimingCurve = GATimingCurve(functionName: .easeIn)
+    public static let easeOut: GATimingCurve = GATimingCurve(functionName: .easeOut)
+    public static let easeInOut: GATimingCurve = GATimingCurve(functionName: .easeInEaseOut)
     
     public convenience init(functionName: CAMediaTimingFunctionName) {
         self.init(function: CAMediaTimingFunction(name: functionName))

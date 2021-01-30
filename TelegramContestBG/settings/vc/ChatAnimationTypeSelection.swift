@@ -9,8 +9,8 @@ import UIKit
 
 class ChatAnimationTypeSelection: UITableViewController {
 
-    typealias AnimType = ChatAnimationSettingsModel.MessagesKey
-    var settings: ChatAnimationSettingsModel?
+    typealias AnimType = GAChatAnimModel.ObjectKey
+    var settings: GAChatAnimModel?
     var displayTypes: [(name: String, types: [AnimType])] = []
     var onSelect: ((AnimType)->())?
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class ChatAnimationTypeSelection: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         let type = animType(forIndex: indexPath)
-        cell.textLabel?.text = settings?.messages[type]?.fullName
+        cell.textLabel?.text = settings?.objects[type]?.fullName
 
         return cell
     }

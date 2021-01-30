@@ -239,7 +239,7 @@ extension GAChatAnimationSettingsVC {
     }
     
     func cellForColor(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "color_cell", for: indexPath) as? ColorSelectionCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "color_cell", for: indexPath) as? GAColorSelectionCell else {
             return UITableViewCell()
         }
         
@@ -268,7 +268,7 @@ extension GAChatAnimationSettingsVC {
     }
     
     func cellFor(timingKey: GAAnimElemName, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "timing_cell", for: indexPath) as? TimingCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "timing_cell", for: indexPath) as? GATimingCell else {
             return UITableViewCell()
         }
         
@@ -289,12 +289,12 @@ extension GAChatAnimationSettingsVC {
     }
     func cellFor(action: CellAction, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: ActionCell
+        let cell: GAActionCell
         switch action {
         case .type, .duration:
-            cell = tableView.dequeueReusableCell(withIdentifier: "option_cell", for: indexPath) as! ActionCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "option_cell", for: indexPath) as! GAActionCell
         default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "action_cell", for: indexPath) as! ActionCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "action_cell", for: indexPath) as! GAActionCell
         }
         
         
@@ -331,7 +331,7 @@ extension GAChatAnimationSettingsVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let cell = tableView.cellForRow(at: indexPath) as? ActionCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? GAActionCell {
             cell.action?()
         }
     }

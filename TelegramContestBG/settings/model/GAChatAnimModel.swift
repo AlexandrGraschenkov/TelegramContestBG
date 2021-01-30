@@ -27,7 +27,7 @@ enum TimingTime: Int, CaseIterable {
     }
 }
 
-enum TimingModelName: String, Codable {
+enum GAAnimElemName: String, Codable {
     case background = "background"
     case xPos = "x_position"
     case yPos = "y_position"
@@ -38,10 +38,10 @@ enum TimingModelName: String, Codable {
     case scale = "scale"
 }
 
-public struct ChatMessagesAnimModel: Codable {
+public struct GAAnimObjectModel: Codable {
     var shortName: String
     var fullName: String
-    var timing: [TimingModelName: TimingModel]
+    var timing: [GAAnimElemName: GATimingModel]
     
     mutating func update(duration: TimingTime) {
         for (k, _) in timing {
@@ -50,51 +50,51 @@ public struct ChatMessagesAnimModel: Codable {
     }
 }
 
-public class ChatAnimationSettingsModel: Codable {
-    public var backgroundColors: [String]
-    public var messages: [MessagesKey: ChatMessagesAnimModel]
+public class GAChatAnimModel: Codable {
+    public var backgroundColorsHex: [String]
+    public var objects: [ObjectKey: GAAnimObjectModel]
     
-    public func clone() -> ChatAnimationSettingsModel {
-        let cl = ChatAnimationSettingsModel()
-        cl.backgroundColors = backgroundColors
-        cl.messages = messages
+    public func clone() -> GAChatAnimModel {
+        let cl = GAChatAnimModel()
+        cl.backgroundColorsHex = backgroundColorsHex
+        cl.objects = objects
         return cl
     }
     
     static let shared = fromDefaults()
     
     init() {
-        backgroundColors = Self.defaultBackgroundColors
-        messages = Self.defaultMessages
+        backgroundColorsHex = Self.defaultBackgroundColors
+        objects = Self.defaultMessages
     }
     
     required public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: MessagesKey.self)
-        backgroundColors = try container.decode([String].self, forKey: .backgroundColors)
-        messages = [:]
+        let container = try decoder.container(keyedBy: ObjectKey.self)
+        backgroundColorsHex = try container.decode([String].self, forKey: .backgroundColors)
+        objects = [:]
         
-        for k in MessagesKey.allMessage {
-            messages[k] = (try? container.decode(ChatMessagesAnimModel.self, forKey: k)) ?? Self.defaultMessages[k]
+        for k in ObjectKey.allMessage {
+            objects[k] = (try? container.decode(GAAnimObjectModel.self, forKey: k)) ?? Self.defaultMessages[k]
         }
     }
     
     
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: MessagesKey.self)
-        try container.encode(backgroundColors, forKey: .backgroundColors)
-        for (key, val) in messages {
+        var container = encoder.container(keyedBy: ObjectKey.self)
+        try container.encode(backgroundColorsHex, forKey: .backgroundColors)
+        for (key, val) in objects {
             try container.encode(val, forKey: key)
         }
     }
     
     
-    public enum MessagesKey: String, CodingKey {
+    public enum ObjectKey: String, CodingKey {
         case backgroundColors, background, smallMessage, bigMessage, linkPreview, singleEmoji, sticker, voiceMessage, videoMessage
         
-        static let allMessage: [MessagesKey] = [.background, .smallMessage, .bigMessage, .linkPreview, .singleEmoji, .sticker, .voiceMessage, .videoMessage]
+        static let allMessage: [ObjectKey] = [.background, .smallMessage, .bigMessage, .linkPreview, .singleEmoji, .sticker, .voiceMessage, .videoMessage]
     }
     
-    private static let defaultMessages: [MessagesKey: ChatMessagesAnimModel] = [
+    private static let defaultMessages: [ObjectKey: GAAnimObjectModel] = [
         .background: .defaultBackground,
         .smallMessage: .defaultSmallMessage,
         .bigMessage: .defaultBigMessage,
@@ -107,8 +107,8 @@ public class ChatAnimationSettingsModel: Codable {
     private static let defaultBackgroundColors = ["FFF6BF", "76A076", "F6E477", "316B4D"]
 }
 
-extension ChatAnimationSettingsModel {
-    public var backgroundColorsValues: [UIColor] {
-        return backgroundColors.map({UIColor(hex: $0) ?? .white})
+extension GAChatAnimModel {
+    public var backgroundColors: [UIColor] {
+        return backgroundColorsHex.map({UIColor(hex: $0) ?? .white})
     }
 }

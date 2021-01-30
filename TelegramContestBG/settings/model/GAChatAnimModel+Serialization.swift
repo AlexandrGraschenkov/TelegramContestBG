@@ -8,17 +8,17 @@
 import UIKit
 
 
-public extension ChatAnimationSettingsModel {
+public extension GAChatAnimModel {
     
-    static func fromDefaults(key: String = "ChatAnimationSettings") -> ChatAnimationSettingsModel {
+    static func fromDefaults(key: String = "ChatAnimationSettings") -> GAChatAnimModel {
         let defaults = UserDefaults.standard
         if let savedSett = defaults.object(forKey: key) as? Data {
             let decoder = JSONDecoder()
-            if let loaded = try? decoder.decode(ChatAnimationSettingsModel.self, from: savedSett) {
+            if let loaded = try? decoder.decode(GAChatAnimModel.self, from: savedSett) {
                 return loaded
             }
         }
-        return ChatAnimationSettingsModel()
+        return GAChatAnimModel()
     }
     
     func saveToDefaults(key: String = "ChatAnimationSettings") {
@@ -26,15 +26,16 @@ public extension ChatAnimationSettingsModel {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: key)
         }
-        Self.shared.backgroundColors = backgroundColors
-        Self.shared.messages = messages
+        Self.shared.backgroundColorsHex = backgroundColorsHex
+        Self.shared.objects = objects
     }
     
-    func saveToDocuments() -> String? {
+    func saveToDocuments() -> URL? {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let savePath = (documentsPath as NSString).appendingPathComponent("chat_animation_settings.json")
-        if let _ = try? JSONEncoder().encode(self).write(to: URL(fileURLWithPath: savePath)) {
-            return savePath
+        let url = URL(fileURLWithPath: savePath)
+        if let _ = try? JSONEncoder().encode(self).write(to: url) {
+            return url
         }
         return nil
     }
@@ -44,12 +45,12 @@ public extension ChatAnimationSettingsModel {
         guard let data = try? Data(contentsOf: url) else {
             return NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Can't access to file"])
         }
-        guard let loaded = try? decoder.decode(ChatAnimationSettingsModel.self, from: data) else {
+        guard let loaded = try? decoder.decode(GAChatAnimModel.self, from: data) else {
             return NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Can't parse file"])
         }
         
-        self.backgroundColors = loaded.backgroundColors
-        self.messages = loaded.messages
+        self.backgroundColorsHex = loaded.backgroundColorsHex
+        self.objects = loaded.objects
         return nil
     }
 }

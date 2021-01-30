@@ -9,15 +9,15 @@ import UIKit
 
 class ChatBackgroundController: UIViewController {
 
-    @IBOutlet var display: ChatBackground!
-    var settings: ChatAnimationSettingsModel!
+    @IBOutlet var display: GAChatBackground!
+    var settings: GAChatAnimModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        display.colors = settings.backgroundColorsValues
-        if let t = settings.messages[.background]?.timing[.background] {
+        display.colors = settings.backgroundColors
+        if let t = settings.objects[.background]?.timing[.background] {
             display.timing = t
         }
         

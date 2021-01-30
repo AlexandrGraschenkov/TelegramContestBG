@@ -7,8 +7,8 @@
 
 import UIKit
 
-class BackgroundCell: UITableViewCell {
-    @IBOutlet weak var displayView: ChatBackground!
+class GABackgroundCell: UITableViewCell {
+    @IBOutlet weak var displayView: GAChatBackground!
     @IBOutlet weak var openButton: UIButton!
     var openPressed: (()->())?
     
@@ -36,11 +36,11 @@ class BackgroundCell: UITableViewCell {
     }
 }
 
-class TimingCell: UITableViewCell {
-    @IBOutlet weak var timingView: TimingControl!
-    var modelName: TimingModelName?
+class GATimingCell: UITableViewCell {
+    @IBOutlet weak var timingView: GATimingControl!
+    var modelName: GAAnimElemName?
     
-    func setup(name: TimingModelName, timing: TimingModel) {
+    func setup(name: GAAnimElemName, timing: GATimingModel) {
         timingView.model = timing
         modelName = name
     }
@@ -52,9 +52,9 @@ class TimingCell: UITableViewCell {
 }
 
 
-class ColorSelectionCell: UITableViewCell {
+class GAColorSelectionCell: UITableViewCell {
 
-    @IBOutlet weak var colorView: ColorSelection!
+    @IBOutlet weak var colorView: GAColorSelection!
     @IBOutlet weak var nameLabel: UILabel!
     
     var color: UIColor {
@@ -81,7 +81,7 @@ class ColorSelectionCell: UITableViewCell {
     }
 }
 
-class ActionCell: UITableViewCell {
+class GAActionCell: UITableViewCell {
     var action: (()->())?
     override func prepareForReuse() {
         super.prepareForReuse()

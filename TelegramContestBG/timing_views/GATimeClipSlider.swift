@@ -27,7 +27,7 @@ import UIKit
 //    }
 //}
 
-class TimeClipSlider: UISlider {
+class GATimeClipSlider: UISlider {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

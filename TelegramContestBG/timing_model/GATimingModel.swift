@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct TimingModel: Codable {
-    static let zero = TimingModel(durationF: 0, startOffsetF: 0, endOffsetF: 0, startEase: 0, endEase: 0, name: "")
+struct GATimingModel: Codable {
+    static let zero = GATimingModel(durationF: 0, startOffsetF: 0, endOffsetF: 0, startEase: 0, endEase: 0, name: "")
     
     var durationF: CGFloat // Frames count
     var startOffsetF: CGFloat // Offset frames count
@@ -36,7 +36,7 @@ struct TimingModel: Codable {
     private enum CodingKeys: String, CodingKey {
         case durationF, startOffsetF, endOffsetF, startEase, endEase, name
     }
-    fileprivate var curveCache: TimingCurve?
+    fileprivate var curveCache: GATimingCurve?
     
     mutating func update(duration: CGFloat) {
         startOffsetF = round(startOffsetF * (duration / self.durationF))
@@ -53,12 +53,12 @@ struct TimingModel: Codable {
     }
 }
 
-extension TimingModel {
+extension GATimingModel {
     mutating func process(progress: CGFloat) -> CGFloat {
         let p1 = CGPoint(x: startEase, y: 0)
         let p2 = CGPoint(x: 1-endEase, y: 1)
         if p1 != curveCache?.p1 || p2 != curveCache?.p2 {
-            curveCache = TimingCurve(cp1: p1, cp2: p2)
+            curveCache = GATimingCurve(cp1: p1, cp2: p2)
         }
         
         let clipStart = startOffsetPercent

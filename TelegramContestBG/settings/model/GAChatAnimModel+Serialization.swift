@@ -28,6 +28,7 @@ public extension GAChatAnimModel {
         }
         Self.shared.backgroundColorsHex = backgroundColorsHex
         Self.shared.objects = objects
+        Self.onSharedChange()
     }
     
     func saveToDocuments() -> URL? {
@@ -51,6 +52,16 @@ public extension GAChatAnimModel {
         
         self.backgroundColorsHex = loaded.backgroundColorsHex
         self.objects = loaded.objects
+        if self === GAChatAnimModel.shared {
+            GAChatAnimModel.onSharedChange()
+        }
         return nil
+    }
+    
+    private static func onSharedChange() {
+        // really dirty solution
+        for (key, val) in changeSubscribers {
+            val(shared)
+        }
     }
 }

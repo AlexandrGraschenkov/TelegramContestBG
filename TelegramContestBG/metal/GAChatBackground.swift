@@ -12,6 +12,20 @@ class GAChatBackground: BGRenderView {
     private(set) var progress: CGFloat = 0
     private(set) var animating: Bool = false
     private(set) var cancelLastAnim: (()->())?
+    private var unsubscribe: (()->())?
+    
+    deinit {
+        unsubscribe?()
+    }
+    
+    func subscribeToSharedSettings() {
+        unsubscribe?()
+        unsubscribe = GAChatAnimModel.subscribeSharedChange {[weak self] (sett) in
+            self?.timing = sett.backgroundTiming
+            self?.colors = sett.backgroundColors
+        }
+    }
+    
     var timing: GATimingModel = .zero {
         didSet { colorsOrPointsUpdates() }
     }

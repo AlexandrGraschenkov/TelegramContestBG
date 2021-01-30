@@ -62,6 +62,7 @@ public class GAChatAnimModel: Codable {
     }
     
     static let shared = fromDefaults()
+    static fileprivate(set) var changeSubscribers: [String: (GAChatAnimModel)->()] = [:]
     
     init() {
         backgroundColorsHex = Self.defaultBackgroundColors
@@ -110,5 +111,27 @@ public class GAChatAnimModel: Codable {
 extension GAChatAnimModel {
     public var backgroundColors: [UIColor] {
         return backgroundColorsHex.map({UIColor(hex: $0) ?? .white})
+    }
+}
+
+
+extension GAChatAnimModel {
+    static private func randomString() -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let key = String((0..<10).map{ _ in letters.randomElement()! })
+        return key
+    }
+    
+    static func subscribeSharedChange(_ closure: @escaping (GAChatAnimModel)->()) -> ()->() {
+        var key = randomString()
+        while changeSubscribers[key] != nil {
+            key = randomString()
+        }
+        changeSubscribers[key] = closure
+        return { self.changeSubscribers[key] = nil }
+    }
+    
+    var backgroundTiming: GATimingModel {
+        return objects[.background]!.timing[.background]!
     }
 }

@@ -111,7 +111,7 @@ class GAChatAnimationSettingsVC: UITableViewController {
         visible.append(IndexPath(row: 1, section: 0))
         tableView.reloadRows(at: visible, with: .fade)
         if settingsKey == .background {
-            lastBgCell?.displayView.timing = settings.objects[settingsKey]!.timing[.background]!
+            lastBgCell?.displayView.timing = settings.backgroundTiming
         }
     }
     

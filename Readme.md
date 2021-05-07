@@ -12,8 +12,8 @@ In this repo you can find implementation for:
 - Background drawing of gradient with `Metal` (with displacement distortion)
 - Setting implementation with non trivial slider control
 
-<img src="https://github.com/AlexandrGraschenkov/TelegramContestBG/raw/master/readme_images/bg.gif" alt="Demo" width="180px" /> &nbsp;
-<img src="https://github.com/AlexandrGraschenkov/TelegramContestBG/raw/master/readme_images/slider.gif" alt="Demo" width="180px" />
+<img src="https://github.com/AlexandrGraschenkov/TelegramContestBG/raw/master/readme_images/bg.gif" alt="Background GIF" width="220px" /> &nbsp;
+<img src="https://github.com/AlexandrGraschenkov/TelegramContestBG/raw/master/readme_images/slider.gif" alt="Slider GIF" width="220px" />
 
 ### Details
 1) Slider control was build on top 4 standart `UISlider`
